@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const getAllToDo = (setToDo) => {
-  fetch("https://fullstack-todoapp-backend-wo0f.onrender.com")
+  fetch("https://fullstack-todoapp-backend-do0u.onrender.com")
     .then((res) => res.json())
     .then((data) => {
       setToDo(data);
@@ -11,7 +11,7 @@ const getAllToDo = (setToDo) => {
 };
 
 const addToDo = (text, setText, setToDo) => {
-  fetch("https://fullstack-todoapp-backend-wo0f.onrender.com/save", {
+  fetch("https://fullstack-todoapp-backend-do0u.onrender.com/save", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -29,7 +29,7 @@ const addToDo = (text, setText, setToDo) => {
 };
 
 const updateToDo = (toDoId, text, setToDo, setText, setIsUpdating) => {
-  axios.put(`https://fullstack-todoapp-backend-wo0f.onrender.com/update`, {_id: toDoId, text})
+  axios.put(`https://fullstack-todoapp-backend-do0u.onrender.com/update`, {_id: toDoId, text})
     .then((data) => {
       getAllToDo(setToDo);
       setText("");
@@ -41,7 +41,7 @@ const updateToDo = (toDoId, text, setToDo, setText, setIsUpdating) => {
 
 const deleteToDo = (_id, setToDo) => {
   console.log(_id);
-  axios.delete(`https://fullstack-todoapp-backend-wo0f.onrender.com/delete`, { data: { _id: _id } })
+  axios.delete(`https://fullstack-todoapp-backend-do0u.onrender.com/delete`, { data: { _id: _id } })
     .then((data) => {
       console.log(data)
       getAllToDo(setToDo);
